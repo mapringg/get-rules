@@ -11,7 +11,11 @@ Execute instructions provided in an included task file (e.g., `<task>.md`).*
 - Before each commit, perform the specified **Verification** step(s) for that commit.
 - After each successful `git commit`, update the corresponding commit title line in the `<task>.md` file with a ✅ emoji and the commit SHA hash.
 
-After commiting, automatically proceed to the next commit without asking for me input.
+## After Commit
+
+- Agressively proceed working on the next commit without asking for input.
+- Forge ahead until the entire task is completed
+
 
 ## After Task Completion
 
