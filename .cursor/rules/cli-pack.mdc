@@ -10,7 +10,8 @@ Instructions for using `repomix` are below:
 
 ## Customization
 - Always use `-o tmp/<filename>` so that the file is saved to a `tmp/` directory within the current project.
-- Always ignore ".cursor/rules" and "tmp"
+- Always ignore "tmp"
+- Include ".cursor/rules/_project.mdc", but ignore other ".cursor/rules" files
 
 
 ## Usage
