@@ -10,7 +10,8 @@ Your goal is to pack up files into a single file using the `repomix` cli.
 - Always ignore "tmp"
 - Always include token count: use `--token-count-encoding o200k_base`
 - Never include line numbers: do NOT use `--output-show-line-numbers`
-- Include ".cursor/rules/_project.mdc", but ignore other ".cursor/rules" files
+- Ignore ".cursor/rules" files
+- Always copy to the clipboard
 
 ## Usage
 Usage: repomix [options] [directories...]
