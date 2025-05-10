@@ -3,57 +3,78 @@ description:
 globs:
 alwaysApply: false
 ---
-# Task Planning Rule
 
-*This rule guides the creation of a task plan file (`docs/tasks/<YYYY-MM-DD-task-name>.md`) based on user request and project documentation.*
+# Task Planning
+
+These instructions guides the creation of a task plan file (`docs/tasks/<YYYY-MM-DD-task-name>.md`) based on user request and project documentation.*
 
 ## Before You Begin, Capture the Date
 
-Obtain the date through a terminal command with YYYY-MM-DD
+Obtain the date through a terminal command (e.g.,`date +"%Y-%m-%d-%H-%M"`) in the following format: `YYYY-MM-DD-HH-MM`.
 
-## Gather context from `docs/` and NOTES.md
-**Crucial:** Find and thoroughly read all relevant files in the `docs/` directory to gather context. **Prioritize `docs/PRD.md`, `docs/TECH_STACK.md`, and `docs/openapi.yaml` if they exist.** This information is *essential* for creating an accurate and useful task plan.
+## Gather Context from `docs/` and `NOTES.md`
+
+**Crucial:** Find and thoroughly read all relevant files in the `docs/` directory to gather context. **Prioritize `docs/PRD.md`, `docs/TECH_STACK.md`, `docs/openapi.yaml`, and any logging‑ or testing‑related docs such as `docs/logging.md`, `docs/LOGGING_GUIDE.md`, `docs/TEST_STRATEGY.md` if they exist.** This information is *essential* for creating an accurate and useful task plan.
 
 ### Core Directive
-Create and maintain a `docs/tasks/<YYYY-MM-DD-task-name>.md` file. This file outlines a step-by-step plan (up to 5 commits) for the user's coding task. The plan **must** be based on details found in the project's `docs/` directory to ensure incremental implementation with verification.
+
+Create and maintain a `docs/tasks/<YYYY-MM-DD-task-name>.md` file. This file outlines a step‑by‑step plan (up to 5 commits) for the user's coding task. The plan **must** be based on details found in the project's `docs/` directory to ensure incremental implementation with verification **and must explicitly incorporate both testing and logging best practices (see “Testing & Observability Priority” below).**
 
 ### Strict Limitations
-* **File Operations:** It is **essential** to gather context by thoroughly reading relevant files in the `docs/` directory (prioritizing `docs/PRD.md`, `docs/TECH_STACK.md`, `docs/openapi.yaml`, `NOTES.md`). This information **must** inform the task plan. You are permitted to read/write the specific task file (`docs/tasks/<YYYY-MM-DD-task-name>.md`). Limit interaction with other files.
-* **Communication:** You are forbidden from generating any conversational output, commentary, preamble, or summaries, except for the initial file-naming instruction block specified in "Before You Begin". Your entire output must be the content of the `docs/tasks/<YYYY-MM-DD-task-name>.md` file itself. Do not repeat the contents of `docs/tasks/<YYYY-MM-DD-task-name>.md` back to the user in any other format.
-* **User Interaction:** You do not directly converse with the user beyond receiving the initial task description and providing the output file. If the task description, even after cross-referencing with all available `docs/` materials, is insufficient to create a coherent and specific plan, you will indicate this *within* the `docs/tasks/<YYYY-MM-DD-task-name>.md` file using the specific comment format detailed below.
+
+* **File Operations:** It is **essential** to gather context by thoroughly reading relevant files in the `docs/` directory (prioritizing `docs/PRD.md`, `docs/TECH_STACK.md`, `docs/openapi.yaml`, `docs/logging*.md`, `docs/TEST*.md`, `NOTES.md`). This information **must** inform the task plan. You are permitted to read/write ONLY the specific task file (`docs/tasks/<YYYY-MM-DD-task-name>.md`).
+* **Communication:** You are forbidden from generating any conversational output, commentary, preamble, or summaries, except for the initial file‑naming instruction block specified in "Before You Begin". Your entire output must be the content of the `docs/tasks/<YYYY-MM-DD-task-name>.md` file itself.
+* **User Interaction:** You do not directly converse with the user beyond receiving the initial task description and providing the output file. If the task description, even after cross‑referencing with all available `docs/` materials, is insufficient to create a coherent and specific plan, you will indicate this *within* the `docs/tasks/<YYYY-MM-DD-task-name>.md` file using the specific comment format detailed below.
+
+### Testing & Observability Priority
+
+1. **Primary Verification = Automated Tests**
+
+   * **First choice: Unit tests** (small, isolated, fast).
+   * **Second choice: Integration tests** (broader scope, e2e, contract, etc.).
+   * **Fallback: Explicit runtime logging or debug output** *only if an automated test is genuinely infeasible.*
+2. **Logging Is Always Required**
+   Even when tests exist, each commit must also include relevant logging or debug statements for additional runtime visibility. Logging should be **toggle‑able** (e.g., via environment variable like `LOG_LEVEL`, feature flag, or build‑time switch) so it can be switched on/off without code changes.
+3. **Structured & Centralised Logs**
+   Prefer structured output (JSON or clear key=value) and respect the stack’s log aggregation tooling. Reference the exact logger configuration file (e.g., `src/logger.ts` using `pino`, `src/lib/log.ts` with `winston`).
+4. **Verification Hierarchy in Commit Plans**
+
+   * If a **unit test** verifies the change, list the exact test command (e.g., `pnpm test --filter locale-utils`) and expected assertion snapshot.
+   * Otherwise, if an **integration test** is used, specify the script (e.g., `pnpm test:e2e ./test/auth/login.spec.ts`) and expected outcome.
+   * If neither test type is feasible, detail **log inspection steps** (e.g., `tail -f logs/app.log | jq '.msg' | grep "payment succeeded"`).
 
 ### `docs/tasks/<YYYY-MM-DD-task-name>.md` Structure and Content Source
-The `docs/tasks/<YYYY-MM-DD-task-name>.md` file (once correctly named by the user) must be structured as a sequence of planned commits. The primary source of information for populating this file is the user's high-level description of the coding task, **which MUST be interpreted, validated, and expanded using specific details meticulously extracted from a comprehensive review of relevant `docs/` files.** Neglecting to consult these documents thoroughly is a critical failure and will lead to an inadequate and unusable plan.
 
-#### Task Breakdown Structure:
+The task file **must** be structured as a sequence of planned commits. Your primary source is the user's task description, **validated and enriched** with exact details from relevant `docs/` files. Neglecting these documents is a critical failure.
 
-The file should generally follow this Markdown structure (after the initial file-naming instruction block):
-Each commit title must adhere to semantic commit conventions (e.g., `feat: Short description`, `fix: Bug details`, `docs: Update README`).
+#### Task Breakdown Structure
+
+Each commit title must follow semantic‑commit style (`feat: …`, `fix: …`, `test: …`, `docs: …`).
 
 ```markdown
-# Task: [Brief Task Title - Inferred from User's Description or Explicitly Given, informed by docs/PRD.md if available]
+# Task: [Brief Task Title – inspired by docs/PRD.md or user input]
 
-## Commit 1: [type: Descriptive Title of First Step]
+## Commit 1: [type: Descriptive Title]
 **Description:**
-[*Required Detail:* Provide a detailed explanation of this commit's goal, drawing specifics from `docs/PRD.md`, `docs/TECH_STACK.md`, etc. *Must* reference exact files (e.g., `src/utils/auth.js`), paths, function/method names (e.g., `getUserProfile()`), classes, imports (e.g., `import {Button} from '@mui/material'`), CLI commands (e.g., `npx prisma migrate dev --name init_schema`), framework APIs (e.g., `app.use(cors())`), or other precise technical details. Vague descriptions are insufficient.]
+[*Required Detail:* Explain the goal with specific file paths (`src/pages/login.tsx`), function names (`handleSubmit`), CLI commands (`npx prisma migrate`), imports, AND any logger/test files touched (e.g., `tests/unit/login.test.ts`, `src/logger.ts`).]
 
 **Verification:**
-[*Required Detail:* Provide explicit, actionable steps to confirm correctness *before* committing. Include specific commands (e.g., `npm run test:unit -- src/services/userService.test.js`, `curl ...`), scripts, paths, UI elements by ID/class (e.g., "Verify `<div id=\"user-greeting\">` displays username per `docs/PRD.md`"), or precise expected outputs. Vague steps like "Test the feature" are insufficient.]
+1. **Unit / Integration Test:** Provide the exact command to run (e.g., `pnpm vitest run login.test.ts`). Include expected assertion or snapshot reference.  
+2. **Log Check (if no test possible):** Provide commands or dashboard query to confirm logs (e.g., `kubectl logs api | grep "user_created"`).
 
 ---
 
-## Commit 2: [type: Descriptive Title of Second Step]
-**Description:**
-[As above, CRITICALLY detailed and specific, referencing exact files, paths, functions, commands, libraries, frameworks, etc., all derived from or consistent with information in the `docs/` directory.]
-
-**Verification:**
-[As above, CRITICALLY detailed and specific, referencing exact commands, scripts, outputs, UI elements, etc., and aligned with any testing or QA guidelines in `docs/`.]
-
----
-... (Up to 5 commits)
-
----
+## Commit 2: …
 ```
 
-#### Handling Insufficient Information and Ambiguity:
-If, after a **thorough review** of all relevant `docs/` files, the required specificity for file paths, function names, commands, etc., is still missing for a **Description** or **Verification** step, **do not invent details**. Insert an HTML comment (`<!-- TODO: ... -->`) at the point of ambiguity, clearly stating the specific information needed and potentially referencing the relevant `docs/` file where it might be found. Use information from `docs/TECH_STACK.md` to guide the type of detail requested (e.g., component names for React, model names for Django).
+*(Repeat for up to 5 commits)*
+
+#### Handling Insufficient Information & Ambiguity
+
+If, after **thorough review** of `docs/`, you still lack the necessary details, do **not** invent them. Instead insert an HTML comment:
+
+```html
+<!-- TODO: Need API endpoint path for user creation (see docs/openapi.yaml) -->
+```
+
+and proceed once clarified.
