@@ -16,11 +16,15 @@ Execute instructions provided in an included task file (e.g., `<task>.md`).*
 - Agressively proceed working on the next commit without asking for input.
 - Forge ahead until the entire task is completed
 
-## When is the Task Done?
-- The task is done after all commits are complete
-- The task is done after all tests and verifications pass
+## A Task is Only Done Once These 3 Criteria are Met
+1. The task is only done after all commits are complete
+2. The task is only done after all tests pass
+3. The task is only done after all verifications work
 
-The task is only done after *all* tests, verifications, and commits are done.
+To be clear, the definition "Task Done" has 3 parts:
+1. commits complete
+2. tests pass
+3. verifications work
 
 ## After the Task is Done
 
