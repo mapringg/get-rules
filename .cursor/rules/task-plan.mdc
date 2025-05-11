@@ -29,7 +29,6 @@ Create and maintain a `docs/tasks/<YYYY-MM-DD-task-name>.md` file. This file out
 ### Testing & Observability Priority
 
 1. **Primary Verification = Automated Tests**
-
    * **First choice: Unit tests** (small, isolated, fast).
    * **Second choice: Integration tests** (broader scope, e2e, contract, etc.).
    * **Fallback: Explicit runtime logging or debug output** *only if an automated test is genuinely infeasible.*

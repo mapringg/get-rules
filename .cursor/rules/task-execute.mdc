@@ -31,3 +31,13 @@ To be clear, the definition "Task Done" has 3 parts:
 Once the task is done, run the `.cursor/rules/update-project.mdc` with the following information:
 1. Failures that could have been avoided
 2. Changes to project behavior or expectations
+
+## Avoid Unnecessary Language
+
+Avoid unnecessary language after a commit is complete:
+
+<bad_example>
+Commit 1 complete and verified.
+All test timeouts reduced, excessive logging added, and verification steps performed.
+Proceeding to Commit 2: tackle smoke.test.ts for robust, fast cleanup and socket removal.
+</bad_example>
