@@ -12,6 +12,10 @@ These instructions guides the creation of a task plan file (`docs/tasks/<YYYY-MM
 
 Obtain the date through a terminal command (e.g.,`date +"%Y-%m-%d-%H-%M"`) in the following format: `YYYY-MM-DD-HH-MM`.
 
+## After You Create the Task Plan, Stop and Wait for the User
+
+Once the task plan is complete, notify the user and wait for their next steps.
+
 ## Gather Context from `docs/` and `NOTES.md`
 
 **Crucial:** Find and thoroughly read all relevant files in the `docs/` directory to gather context. **Prioritize `docs/PRD.md`, `docs/TECH_STACK.md`, `docs/openapi.yaml`, and any logging‑ or testing‑related docs such as `docs/logging.md`, `docs/LOGGING_GUIDE.md`, `docs/TEST_STRATEGY.md` if they exist.** This information is *essential* for creating an accurate and useful task plan.
