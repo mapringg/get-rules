@@ -6,11 +6,17 @@ alwaysApply: false
 
 # Create a Pull Request
 
+0.  **Check for Unstaged Changes:**
+    *   Execute `git status` to identify any modified or new files that are not yet staged.
+    *   Review the list of unstaged files.
+    *   If any relevant changes intended for this pull request are unstaged, stage them using `git add <file>...` or `git add .`.
+    *   Confirm via `git status` that all intended changes are now staged.
+
 1.  **Audit Staged Files:**
     *   Verify `.gitignore` is up-to-date and correctly excludes unwanted files.
-    *   Execute `git status` to list all staged, changed, and untracked files.
+    *   Execute `git status` again to review the final list of staged files.
     *   Identify any files (e.g., secrets, build artifacts, logs, temporary files) that should *not* be committed. Legitimate config/tooling files (like `.vscode/`, `.cursor/`, `.editorconfig`) are usually okay.
-    *   If inappropriate files are found:
+    *   If inappropriate files are found staged:
         *   Add specific patterns for them to `.gitignore`.
         *   Unstage them using `git reset HEAD <file>...`.
         *   If they are already tracked, remove them from git tracking using `git rm --cached <file>...`.
