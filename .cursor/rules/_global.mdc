@@ -26,8 +26,9 @@ Default to `pnpm` unless otherwise specified
 
 ## Preferred Libraries
 - Testing: `vitest`
-- Formatting/Linting: `@biomejs/biome`
-- Running TypeScript: `tsx`
+- Formatting/Linting: `@biomejs/biome` (always use)
+    - Use `biome check --write --unsafe` to format files
+- Running TypeScript: `bun`, but as `#!/usr/bin/env bun` scripts that are executable from the command line.
 
 ## Running Terminal Commands
 **Important:** Avoid newline characters within single arguments or strings passed to the terminal tool, as they can cause parsing issues.

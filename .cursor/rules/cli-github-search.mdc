@@ -1,8 +1,12 @@
 ---
-description:
+description: Search GitHub for examples
 globs:
 alwaysApply: false
 ---
+
+Find examples of files, code, etc on GitHub
+
+
 Usage: ghx [options]
 
 Commands:
