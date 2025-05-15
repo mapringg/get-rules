@@ -51,6 +51,7 @@ Speak in extremely brief sentences. Your communication must:
 - **Commit Messages:** ALWAYS use `fix:`, `feat:`, or `chore:` prefixes.
 - **Verification:** NEVER use `--no-verify` or bypass pre-commit hooks.
 - **Pushing Code:** NEVER push failing tests to the repository.
+- **Avoid Intraective:** NEVER use `git rebase --continue`, `git commit --amend`, or other interactive commands. You do not have access to the interactive terminal.
 
 ## Project & Configuration Initialization
 
