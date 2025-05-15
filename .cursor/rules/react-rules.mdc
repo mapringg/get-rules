@@ -3,11 +3,7 @@ description:
 globs:
 alwaysApply: false
 ---
----
-description:
-globs:
-alwaysApply: false
----
+
 # React: Apply `useEffect` Dependency Best Practices
 
 **Your task: When using `useEffect` in React components, ensure dependency arrays are correctly managed to prevent infinite loops and optimize performance.**

@@ -36,6 +36,6 @@ This typically occurs because `pnpm` defaults to not running build scripts for s
     ```bash
     pnpm install --dangerously-allow-all-builds
     ```
-    *   **Warning:** This flag bypasses a security feature. Use it only when you trust all dependencies being installed or built. Prefer Solution 1 for specific, ongoing needs.*
+    - **Warning:** This flag bypasses a security feature. Use it only when you trust all dependencies being installed or built. Prefer Solution 1 for specific, ongoing needs.*
 
 **REMEMBER: Apply these solutions when `pnpm`'s security measures prevent necessary build scripts from *trusted* dependencies from running. Prioritize the `package.json` configuration for persistent allowances.**

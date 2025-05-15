@@ -11,9 +11,9 @@ alwaysApply: false
 
 ## Operational Guidelines for AI:
 
-*   **Default Action:** When the user expresses intent related to a new worktree (e.g., "create a worktree for branch X", "start work on Y"), assume they want to create a *new* worktree using `wt new [branchName]` unless they explicitly specify another `wt` command (like `list`, `remove`, etc.).
-*   **Post-Creation Pause:** After successfully creating a new worktree using `wt new`, pause and await the user's next instruction. Do not automatically proceed with other actions unless explicitly part of a larger, pre-defined plan.
-*   **Dependency Installation (CRITICAL DEFAULT):** When executing `wt new`, **ALWAYS append `-i pnpm`** to the command to ensure dependencies are installed using `pnpm` by default. For example: `wt new feature/login -i pnpm`.
+- **Default Action:** When the user expresses intent related to a new worktree (e.g., "create a worktree for branch X", "start work on Y"), assume they want to create a *new* worktree using `wt new [branchName]` unless they explicitly specify another `wt` command (like `list`, `remove`, etc.).
+- **Post-Creation Pause:** After successfully creating a new worktree using `wt new`, pause and await the user's next instruction. Do not automatically proceed with other actions unless explicitly part of a larger, pre-defined plan.
+- **Dependency Installation (CRITICAL DEFAULT):** When executing `wt new`, **ALWAYS append `-i pnpm`** to the command to ensure dependencies are installed using `pnpm` by default. For example: `wt new feature/login -i pnpm`.
 
 ## `wt` Command Reference
 
@@ -55,10 +55,10 @@ Description: Manage git worktrees and open them in the Cursor editor.
 
 ### Examples for `wt new`:
 
-*   `wt new feature/login -i pnpm` (AI Default: creates worktree, installs with pnpm)
-*   `wt new feature/chat --checkout -i pnpm` (AI Default: creates, checks out, installs with pnpm)
-*   `wt new feature/auth -p ./auth-worktree -i pnpm` (AI Default: creates at path, installs with pnpm)
-*   `wt new feature/vscode -e code -i pnpm` (AI Default: creates, opens in VSCode, installs with pnpm)
+- `wt new feature/login -i pnpm` (AI Default: creates worktree, installs with pnpm)
+- `wt new feature/chat --checkout -i pnpm` (AI Default: creates, checks out, installs with pnpm)
+- `wt new feature/auth -p ./auth-worktree -i pnpm` (AI Default: creates at path, installs with pnpm)
+- `wt new feature/vscode -e code -i pnpm` (AI Default: creates, opens in VSCode, installs with pnpm)
 
 *(Note: The examples above have been updated to include the AI's default `-i pnpm` behavior.)*
 

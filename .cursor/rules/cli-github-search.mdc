@@ -9,13 +9,6 @@ alwaysApply: false
 
 ## `ghx` Command Reference
 
----
-description: Search GitHub for examples
-globs: 
-  - "**/cli-github-search.mdc"
-alwaysApply: true
----
-
 Find examples of files, code, etc on GitHub
 
 Usage: ghx [options]

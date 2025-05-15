@@ -11,7 +11,7 @@ alwaysApply: false
 
 When invoking `repomix`, you **MUST** apply the following options by default:
 
-1.  **Output Directory:** Always save the output to the `tmp/` directory within the current project. Use the `-o` flag. Example: `-o tmp/packed-output.md` (replace `packed-output.md` with a descriptive filename).
+1. **Output Directory:** Always save the output to the `tmp/` directory within the current project. Use the `-o` flag. Example: `-o tmp/packed-output.md` (replace `packed-output.md` with a descriptive filename).
 2.  **Ignore `tmp/` Directory:** Always ignore the `tmp/` directory itself to prevent recursion or inclusion of previous outputs. Add `tmp/` to ignore patterns. Example: `--ignore "tmp/,**/.DS_Store"`.
 3.  **Ignore `.cursor/rules/` Directory:** Always ignore the `.cursor/rules/` directory. Example: `--ignore "tmp/,**/.DS_Store,.cursor/rules/"`.
 4.  **Include Token Count:** Always include a token count in the output. Use `--token-count-encoding o200k_base`.
@@ -66,30 +66,30 @@ Description: Repomix - Pack your repository into a single AI-friendly file.
 
 ## III. Key Usage Scenarios & Examples
 
-*   **Default AI Behavior (Packing `src` and `docs`):**
+- **Default AI Behavior (Packing `src` and `docs`):**
     `repomix src docs -o tmp/src-docs-pack.md --ignore "tmp/,**/.DS_Store,.cursor/rules/" --token-count-encoding o200k_base --copy`
 
-*   **Markdown Output, Compressed, No Comments:**
+- **Markdown Output, Compressed, No Comments:**
     `repomix . -o tmp/project-compressed.md --style markdown --compress --remove-comments --ignore "tmp/,**/.DS_Store,.cursor/rules/" --token-count-encoding o200k_base --copy`
 
-*   **Only Include Specific File Types (e.g., TypeScript and Markdown), Ignore Tests:**
+- **Only Include Specific File Types (e.g., TypeScript and Markdown), Ignore Tests:**
     `repomix . --include "**/*.ts,**/*.md" --ignore "tmp/,**/.DS_Store,.cursor/rules/,**/*.test.ts,**/*.spec.ts" -o tmp/filtered-pack.md --token-count-encoding o200k_base --copy`
 
-*   **Process a Remote GitHub Repository:**
+- **Process a Remote GitHub Repository:**
     `repomix --remote https://github.com/user/repo --remote-branch main -o tmp/remote-repo-pack.txt --ignore "tmp/,**/.DS_Store,.cursor/rules/" --token-count-encoding o200k_base --copy`
 
-*   **Initialize a Local Config File:**
+- **Initialize a Local Config File:**
     `repomix --init` (Then customize `repomix.config.json` and run `repomix -c repomix.config.json ...`)
 
 ## IV. Post-Processing: Token Count Management
 
 1.  **Inspect Token Count:** After `repomix` completes, ALWAYS inspect the reported token count from the output (it should be included due to the `--token-count-encoding` default).
 2.  **Address High Token Counts (e.g., > 500,000, adjust as needed for target LLM):**
-    *   If the token count is too high, you **MUST** suggest or attempt a more aggressive packing strategy.
-    *   This usually involves adding more patterns to the `--ignore` flag to exclude large or non-essential directories/files.
-    *   **Example Remediation Command:**
+    - If the token count is too high, you **MUST** suggest or attempt a more aggressive packing strategy.
+    - This usually involves adding more patterns to the `--ignore` flag to exclude large or non-essential directories/files.
+    - **Example Remediation Command:**
         `repomix . -o tmp/packed-smaller.md --ignore "tmp/,**/.DS_Store,.cursor/rules/,node_modules/,dist/,build/,public/,docs/,assets/,**/*.png,**/*.jpg,**/*.mp4,**/*.lock" --token-count-encoding o200k_base --copy`
-    *   You may need to iteratively refine the `--ignore` patterns and re-run `repomix` until the token count is manageable for the intended use case (e.g., LLM context window).
-    *   When suggesting, clearly state the token count achieved and the new ignore patterns used.
+    - You may need to iteratively refine the `--ignore` patterns and re-run `repomix` until the token count is manageable for the intended use case (e.g., LLM context window).
+    - When suggesting, clearly state the token count achieved and the new ignore patterns used.
 
 **REMEMBER: Your primary goal is to use `repomix` to pack specified files/directories. Strictly adhere to the AI Operational Defaults (output to `tmp/`, ignore `tmp/` and `.cursor/rules/`, include token count, no line numbers, copy to clipboard). Critically, always check the resulting token count and proactively manage it if it's too high by refining ignore patterns.**
