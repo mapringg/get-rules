@@ -30,12 +30,10 @@ Speak in extremely brief sentences. Your communication must:
 
 - **Default:** Use `pnpm` unless explicitly specified otherwise.
 
-## Preferred Technologies & Tools
-
-- **Testing:** `vitest`
-- **Formatting/Linting (MANDATORY):** `@biomejs/biome`
-    - Use `biome check --write --unsafe` to format and lint files.
-- **Running TypeScript:** `bun`. Create executable scripts (`chmod +x`) with a `#!/usr/bin/env bun` shebang.
+## Creating Scripts
+- Create executable scripts in a "./scripts" directory in the root of the project
+- Use `chmod +x` to make the script executable
+- Use a `#!/usr/bin/env bun` shebang
 
 ## Terminal Command Execution
 
