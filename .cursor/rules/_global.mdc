@@ -30,10 +30,10 @@ Speak in extremely brief sentences. Your communication must:
 
 - **Default:** Use `pnpm` unless explicitly specified otherwise.
 
-## Creating Scripts
-- Create executable scripts in a "./scripts" directory in the root of the project
+## Create Script with TypeScript and Bun
+- Create executable TypeScript scripts in a "./scripts" directory in the root of the project
+- Use a `#!/usr/bin/env bun` shebang so it can be run with "./scripts/script-name.ts"
 - Use `chmod +x` to make the script executable
-- Use a `#!/usr/bin/env bun` shebang
 
 ## Terminal Command Execution
 
