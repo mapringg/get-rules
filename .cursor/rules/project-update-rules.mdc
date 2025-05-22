@@ -150,3 +150,5 @@ ide recommendations: [e.g., VS Code with specific extensions (check `.vscode/ext
   - Follow guidelines in [auth.mdc](mdc:.cursor/rules/auth.mdc) for authentication.
   ]
 </template>
+
+Remember: the frontmatter for `_project.mdc` must have alwaysApply set to true.
