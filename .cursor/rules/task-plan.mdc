@@ -99,7 +99,7 @@ Each commit title **MUST** follow semantic commit style (e.g., `feat: ...`, `fix
 
 ---
 
-(Repeat structure for up to 5 commits as needed for the task)
+(Repeat structure for up to 5 commits as needed for the task. For simple tasks, you may only need 1-2 commits.)
 
 ```
 
