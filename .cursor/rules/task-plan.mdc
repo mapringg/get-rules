@@ -108,3 +108,5 @@ Each commit title **MUST** follow semantic commit style (e.g., `feat: ...`, `fix
 Once the *entire content* of the `docs/tasks/<YYYY-MM-DD-HH-MM-task-name>.md` file has been generated (and is your sole output for this rule), **STOP**. Notify the user that the task plan is complete and available at the specified path, then await their next instructions.
 
 **REMEMBER: Your output is SOLELY the Markdown content of the task plan file. This plan MUST be informed by `docs/` research, detail 2-5 verifiable commits, and rigorously include both automated tests and toggleable logging for each commit. Adhere strictly to the output format and communication constraints.**
+
+Once the task plan is complete, wait for the user to provide feedback.
