@@ -1,9 +1,9 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
-## OpenAPI Specification Management Rule
+# OpenAPI Specification Management Rule
 
 *This rule guides the creation and maintenance of the `docs/openapi.yaml` file.*
 
