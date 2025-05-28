@@ -1,0 +1,61 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Continue Task from Plan File
+
+**Your Primary Goal: Check commits since the last push, reconcile them with a specified task file, and resume executing the remaining commits starting from the last verified commit.**
+
+## File Existence Check
+
+Confirm the task file is present and fetch the latest remote updates:
+
+```bash
+ls -1 docs/tasks/<YYYY-MM-DD-task-name>.md 2>/dev/null
+git fetch --all --prune
+```
+
+If the task file is missing, stop and notify the user.
+
+## Determine Current Progress
+
+1. Identify the current branch and its upstream:
+
+```bash
+git branch --show-current
+git rev-parse --abbrev-ref --symbolic-full-name @{u}
+```
+
+2. Check for any unstaged or staged changes:
+
+```bash
+git status --short
+```
+
+If there are local modifications, decide whether to commit them, stash them, or discard them before continuing.
+
+3. List commits not yet pushed:
+
+```bash
+git log --oneline @{u}..HEAD
+```
+
+4. Inspect the task file for lines containing `✅ <sha>` to find the last verified commit.
+5. Compare the local commit list with these markers to determine which commits in the plan have already been completed.
+
+## Resume Remaining Commits
+
+For each remaining commit in the task file, follow the workflow defined in `task-execute.mdc`:
+
+1. Implement the changes for the next unverified commit.
+2. Perform all specified verification steps before committing.
+3. Create the commit using the exact message from the task file.
+4. Append `✅ <commit-sha>` to the corresponding heading line in the task file.
+5. Continue sequentially until all commits in the plan are processed.
+
+## Completion Criteria
+
+The task is **Complete** when every commit in the task file has a recorded `✅` with its SHA and all verifications pass. After completing the final commit, run the `.cursor/rules/project-update-rules.mdc` instructions.
+
+**REMEMBER:** Avoid conversational output between commits. Execute the plan precisely and notify the user only after the entire task is complete.
