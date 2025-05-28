@@ -5,7 +5,18 @@ alwaysApply: false
 ---
 # Create a GitHub Issue Task Plan
 
+
 **Your Core Task: Generate a multi-commit task plan and post it as a GitHub issue using the `gh` CLI. The issue body must contain the entire plan. No local task file is created.**
+
+## File Existence Check
+
+Verify key documentation files before planning:
+
+```bash
+ls -1 docs/PRD.md docs/TECH_STACK.md docs/openapi.yaml NOTES.md docs/tasks/ 2>/dev/null
+```
+
+Use the results to tailor the task plan.
 
 ## I. Pre-computation: Capture Timestamp
 

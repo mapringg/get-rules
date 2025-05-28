@@ -5,7 +5,18 @@ alwaysApply: false
 ---
 # Execute Planned Task Commits from GitHub Issue
 
+
 **Your Primary Goal: Systematically execute the step-by-step plan defined in a specified GitHub issue (the issue number is provided by the user). Create each commit as planned and verify its success.**
+
+## File Existence Check
+
+Verify that the provided issue exists before starting:
+
+```bash
+gh issue view <issue-number> >/dev/null 2>&1
+```
+
+If the issue is missing or inaccessible, stop and notify the user.
 
 ## Workflow for Each Commit in the Issue:
 
