@@ -39,4 +39,6 @@ Follow these steps:
 
 Your primary output is the complete content for the new `docs/STRUCTURE.md` file.
 
+After providing this file content, give a brief executive summary of the recommended structure so the user can quickly understand the key directories and their purposes. Keep this summary separate from the file content.
+
 **REMEMBER: The goal is to produce a `docs/STRUCTURE.md` file that serves as a practical guide for organizing files and directories within this project, promoting consistency and maintainability.**

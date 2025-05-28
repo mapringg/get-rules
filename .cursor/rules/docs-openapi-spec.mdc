@@ -82,3 +82,5 @@ The `docs/openapi.yaml` file must follow the structure below, derived from the "
                 - `format`: (e.g., uuid, email, int64) (Optional)
                 - `description`: (A brief explanation of the property) (Optional)
                 - `example`: (A sample value) (Optional)
+
+After outputting the full `docs/openapi.yaml` file, give a brief executive summary outlining the main endpoints or components you defined. This summary should not be included inside the YAML file itself.

@@ -116,7 +116,11 @@ Each commit title **MUST** follow semantic commit style (e.g., `feat: ...`, `fix
 
 ## IV. Post Task Plan Creation: Stop and Notify
 
-After posting the issue with the complete body via `gh issue create`, **STOP**. Notify the user of the newly created issue number or URL, then await their next instructions.
+After posting the issue with the complete body via `gh issue create`, **STOP**. Notify the user of the newly created issue number or URL.
+
+**Immediately after** posting, provide a short executive summary of the planned commits so the user can quickly review the steps. This summary must not be part of the issue body itself.
+
+After delivering the summary, await the user's next instructions.
 
 **REMEMBER: Your output is SOLELY the Markdown content of the issue body. This plan MUST be informed by `docs/` research, detail 2-5 verifiable commits, and rigorously include both automated tests and toggleable logging for each commit. Adhere strictly to the output format and communication constraints.**
 

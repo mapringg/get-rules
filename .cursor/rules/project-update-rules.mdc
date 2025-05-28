@@ -168,3 +168,5 @@ ide recommendations: [e.g., VS Code with specific extensions (check `.vscode/ext
 </template>
 
 Remember: the frontmatter for `_project.mdc` must have alwaysApply set to true.
+
+After outputting the completed `_project.mdc` file, provide a concise executive summary of the major sections you filled in or updated. Keep this summary separate from the file content so the user can quickly review the changes.
