@@ -10,7 +10,11 @@ alwaysApply: false
 
 Run the following to capture your authenticated GitHub username:
 ```bash
-GH_USER=$(gh api user --jq .login 2>/dev/null || git config user.username || git config user.name | tr "[:space:]" "-")
+GH_USER=$( (gh api user --jq .login 2>/dev/null || git config user.username || git config user.name) \
+  | tr '[:upper:]' '[:lower:]' \
+  | xargs \
+  | tr ' ' '-' \
+  | tr -d '\n' )
 ```
 Then replace `<username>` in the file path with `$GH_USER`.
 
