@@ -75,7 +75,9 @@ Create the issue body content. This body outlines a step-by-step plan, broken do
 
 The issue body **MUST** be structured as a sequence of planned commits. The primary source for content is the user's task description, **validated, augmented, and detailed** with specific information (file paths, function names, API endpoints, configuration details) extracted from the relevant `docs/` files. **Neglecting to consult and incorporate details from project documentation is a critical failure.**
 
-Each commit title **MUST** follow semantic commit style (e.g., `feat: ...`, `fix: ...`, `test: ...`, `docs: ...`, `chore: ...`).
+Each commit title **MUST** follow semantic commit style (e.g., `feat: ...`, `fix: ...`, `test: ...`, `docs: ...`, `chore: ...`) **and**
+include the GitHub issue number in parentheses for traceability. Example:
+`feat: add login API (#42)`.
 
 ```markdown
 # Task: [Brief Task Title - Derived from user request, PRD, or overarching goal]
