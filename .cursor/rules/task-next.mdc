@@ -12,7 +12,7 @@ alwaysApply: false
 Check for key documentation files first:
 
 ```bash
-ls -1 docs/ README.md .cursor/rules/req-task.mdc 2>/dev/null
+ls . docs
 ```
 
 Use these results to inform your analysis.

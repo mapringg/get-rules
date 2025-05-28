@@ -12,7 +12,7 @@ alwaysApply: false
 Determine which of the following files are present:
 
 ```bash
-ls -1 NOTES.md docs/PRD.md docs/openapi.yaml docs/TECH_STACK.md 2>/dev/null
+ls . docs
 ```
 
 Use this list before editing.

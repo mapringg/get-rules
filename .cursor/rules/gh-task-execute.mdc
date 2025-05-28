@@ -13,7 +13,7 @@ alwaysApply: false
 Verify that the provided issue exists before starting:
 
 ```bash
-gh issue view <issue-number> >/dev/null 2>&1
+ls . docs
 ```
 
 If the issue is missing or inaccessible, stop and notify the user.

@@ -12,7 +12,7 @@ alwaysApply: false
 Run the following command to see which source documents are available:
 
 ```bash
-ls -1 NOTES.md docs/PRD.md docs/TECH_STACK.md docs/openapi.yaml 2>/dev/null
+ls . docs
 ```
 
 Use the output to know which files exist before proceeding.

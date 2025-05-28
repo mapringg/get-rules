@@ -12,7 +12,7 @@ alwaysApply: false
 Verify logging directory and ignore file:
 
 ```bash
-ls -1 logs/ .gitignore 2>/dev/null
+ls . docs
 ```
 
 Create missing items if necessary before proceeding.

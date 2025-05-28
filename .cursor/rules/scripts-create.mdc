@@ -12,7 +12,7 @@ alwaysApply: false
 See if the `scripts/` directory already exists:
 
 ```bash
-ls -1 scripts/ 2>/dev/null
+ls . docs
 ```
 
 Then follow the steps below.

@@ -45,7 +45,7 @@ Speak in extremely brief sentences. Your communication must:
 - Run a single command listing all relevant paths at once and suppress errors:
 
 ```bash
-ls -1 <path1> <path2> ... 2>/dev/null
+ls . docs
 ```
 
 - Use the command output to determine which files are present, then proceed with the rule.

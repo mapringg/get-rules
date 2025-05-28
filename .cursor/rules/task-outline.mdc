@@ -12,7 +12,7 @@ alwaysApply: false
 Determine which documentation sources are available:
 
 ```bash
-ls -1 docs/ README.md 2>/dev/null
+ls . docs
 ```
 
 Use this to guide your context review.

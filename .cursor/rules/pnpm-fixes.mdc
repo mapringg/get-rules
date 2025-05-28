@@ -12,7 +12,7 @@ alwaysApply: false
 Determine if `package.json` is present before modifying it:
 
 ```bash
-ls -1 package.json 2>/dev/null
+ls . docs
 ```
 
 Proceed according to the result.

@@ -12,7 +12,7 @@ alwaysApply: false
 Confirm available source files first:
 
 ```bash
-ls -1 NOTES.md docs/PRD.md 2>/dev/null
+ls . docs
 ```
 
 Use these results before proceeding.
