@@ -108,4 +108,6 @@ The `docs/TECH_STACK.md` file **MUST** be organized into the following ten secti
 
 4.  **Final Output:** Your *sole output* is the complete, updated content of `docs/TECH_STACK.md`.
 
+Immediately after providing this file content, output a short executive summary of the key sections you filled in or marked with TODOs. This summary should come after the file content and remain separate from it.
+
 **REMEMBER: Your output MUST ONLY be the full Markdown content for `docs/TECH_STACK.md`. Populate it strictly from `NOTES.md`, `docs/PRD.md`, and `docs/openapi.yaml`. Follow the 10-section structure. Insert `<!-- TODO: ... -->` comments (containing the guiding question from the outline) ONLY for sections where critical information is verifiably absent from all specified source documents.**

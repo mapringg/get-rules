@@ -67,4 +67,6 @@ Use this information before running the remaining steps.
 gh pr create --title "fix: Enforce normalized, dash-separated, lowercase labels" --body-file docs/pr/pr-body-file-fix-label-sanitization.md
 ```
 
+After creating the pull request, give a concise executive summary of the key changes and tests so reviewers know what to expect. Keep this summary separate from the PR body file.
+
 **REMEMBER: The objective is to create a meticulously prepared Pull Request. This includes clean commits, a descriptive title, a comprehensive body, and adherence to any project-specific pre-PR checks. A high-quality PR facilitates easier review and smoother integration.**

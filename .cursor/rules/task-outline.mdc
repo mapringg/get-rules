@@ -32,5 +32,6 @@ Use this rule when the user requests help planning work but has not yet selected
 3. **Present Results**
    - Output a numbered list of the task options with their commit bullets.
    - Conclude with a short prompt asking the user to pick one option for further planning.
+   - After listing the options, provide a brief executive summary highlighting the main differences between the options. This summary should come after the list and not be included within any generated files.
 
 **REMEMBER: This rule only proposes outlines. Do not create any files or commit anything. Wait for the user to choose an option before generating a full task plan.**
