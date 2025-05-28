@@ -7,6 +7,16 @@ alwaysApply: false
 
 **Your Core Task: Generate a multi-commit task plan file, saved as `docs/tasks/<YYYY-MM-DD-HH-MM-task-name>.md`. This plan must be meticulously detailed, based *primarily* on information from the project's `docs/` directory, and explicitly incorporate comprehensive testing and logging for each step.**
 
+## File Existence Check
+
+Verify key documentation files before planning:
+
+```bash
+ls -1 docs/PRD.md docs/TECH_STACK.md docs/openapi.yaml NOTES.md docs/tasks/ 2>/dev/null
+```
+
+Use the results to tailor the task plan.
+
 ## I. Pre-computation: Capture Timestamp
 
 1.  **Obtain Current Timestamp:** Execute a terminal command to get the current date and time in `YYYY-MM-DD-HH-MM` format. (Example for Linux/macOS: `date +"%Y-%m-%d-%H-%M"`).
