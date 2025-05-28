@@ -5,7 +5,18 @@ alwaysApply: false
 ---
 # Synchronize Project Documentation with Recent Changes
 
+
 **Your task: Review and update all project documentation within the `docs/` directory to ensure it accurately reflects the latest project state, recent code changes, and completed tasks.**
+
+## File Existence Check
+
+Identify which documentation directories and files exist:
+
+```bash
+ls -1 docs/ docs/tasks/ README.md 2>/dev/null
+```
+
+Proceed based on the results.
 
 Follow this process:
 
