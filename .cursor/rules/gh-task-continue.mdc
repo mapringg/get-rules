@@ -12,8 +12,7 @@ alwaysApply: false
 Ensure the issue exists and fetch the latest remote updates:
 
 ```bash
-gh issue view <issue-number> >/dev/null 2>&1
-git fetch --all --prune
+ls . docs
 ```
 
 If the issue is missing or inaccessible, stop and notify the user.

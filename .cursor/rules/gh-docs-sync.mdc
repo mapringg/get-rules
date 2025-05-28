@@ -13,7 +13,7 @@ alwaysApply: false
 Identify which documentation directories and files exist:
 
 ```bash
-ls -1 docs/ docs/tasks/ README.md 2>/dev/null
+ls . docs
 ```
 
 Proceed based on the results.

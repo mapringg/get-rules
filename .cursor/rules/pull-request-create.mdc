@@ -12,7 +12,7 @@ alwaysApply: false
 Confirm the presence of `.gitignore` and the PR body file location:
 
 ```bash
-ls -1 .gitignore docs/pr/pr-body-file-<branch-name>.md 2>/dev/null
+ls . docs
 ```
 
 Use this information before running the remaining steps.

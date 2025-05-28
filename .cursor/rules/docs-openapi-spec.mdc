@@ -12,7 +12,7 @@ alwaysApply: false
 Before editing, determine which related docs already exist:
 
 ```bash
-ls -1 NOTES.md docs/PRD.md docs/TECH_STACK.md docs/openapi.yaml 2>/dev/null
+ls . docs
 ```
 
 Use this information to inform the following steps.

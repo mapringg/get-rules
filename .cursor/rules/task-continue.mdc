@@ -12,8 +12,7 @@ alwaysApply: false
 Confirm the task file is present and fetch the latest remote updates:
 
 ```bash
-ls -1 docs/tasks/<YYYY-MM-DD-task-name>.md 2>/dev/null
-git fetch --all --prune
+ls . docs
 ```
 
 If the task file is missing, stop and notify the user.

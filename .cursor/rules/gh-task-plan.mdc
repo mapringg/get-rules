@@ -13,7 +13,7 @@ alwaysApply: false
 Verify key documentation files before planning:
 
 ```bash
-ls -1 docs/PRD.md docs/TECH_STACK.md docs/openapi.yaml NOTES.md docs/tasks/ 2>/dev/null
+ls . docs
 ```
 
 Use the results to tailor the task plan.
