@@ -57,7 +57,10 @@ ls -1 <path1> <path2> ... 2>/dev/null
 
 ## Git Practices
 
-- **Commit Messages:** ALWAYS use `fix:`, `feat:`, or `chore:` prefixes.
+- **Commit Messages:** ALWAYS use `fix:`, `feat:`, or `chore:` prefixes **and**
+  include the related task file or GitHub issue number so commits are easily
+  traceable. Example: `feat: add login flow [task:2023-10-31-login]` or
+  `fix: correct typo (#42)`.
 - **Verification:** NEVER use `--no-verify` or bypass pre-commit hooks.
 - **Pushing Code:** NEVER push failing tests to the repository.
 - **Avoid Intraective:** NEVER use `git rebase --continue`, `git commit --amend`, or other interactive commands. You do not have access to the interactive terminal.
